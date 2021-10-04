@@ -8,8 +8,9 @@ const AuthContext = React.createContext({
 
 export const AuthContextProvider = (props) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  //state is managed by the backedn auth functions
   const loginHandler = (email, password) => {
+    //Here we would usually do some backend authentication validation
     setIsLoggedIn(true);
     localStorage.setItem("isLoggedIn", "1");
   };
@@ -21,6 +22,7 @@ export const AuthContextProvider = (props) => {
   }, []);
 
   const logoutHandler = () => {
+    //here we would again do some backend logout validation
     setIsLoggedIn(false);
     localStorage.removeItem("isLoggedIn");
   };
